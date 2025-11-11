@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camilo Céspedes | Portafolio</title>
+  <link rel="icon" type="image/png" href="assets/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1 class="logo">
+      <img src="assets/Icono.png" alt="Camilo Céspedes Logo" class="logo-img">
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="#about" data-i18n="nav_about">Sobre mí</a></li>
+        <li><a href="#projects" data-i18n="nav_projects">Proyectos</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contacto</a></li>
+        <li><button id="lang-switch">EN / ES</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <h2 data-i18n="hero_title">Transformando sus ideas en realidad 💡</h2>
+      <p data-i18n="hero_text">Soy Camilo Céspedes Umaña, desarrollador Full Stack apasionado por la tecnología.</p>
+      <a href="#projects" class="btn" data-i18n="see_projects">Ver proyectos</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 data-i18n="about_title">Sobre mí</h2>
+    <p data-i18n="about_text">
+      Soy programador Full Stack con un marcado interés en la tecnología. Me destaco por la responsabilidad, el compromiso y el trabajo en equipo. Mi objetivo es aplicar mis conocimientos en el desarrollo de proyectos innovadores y de calidad.
+    </p>
+    <div class="mission-vision">
+      <div>
+        <h3 data-i18n="mission_title">Misión</h3>
+        <p data-i18n="mission_text">Crear soluciones innovadoras que transformen el mundo y mejoren la vida de las personas.</p>
+      </div>
+      <div>
+        <h3 data-i18n="vision_title">Visión</h3>
+        <p data-i18n="vision_text">Ser un ingeniero de software reconocido por liderazgo y excelencia, desarrollando soluciones que generen impacto positivo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 data-i18n="projects_title">Proyectos destacados</h2>
+    <div class="gallery">
+      <div class="card">
+        <img src="assets/Proyecto1.jpg" alt="Proyecto 1">
+        <h4 data-i18n="proj1_title">CR Finance</h4>
+        <p data-i18n="proj1_desc">Plataforma de simulación de mercado usando ReactJS y API REST.</p>
+      </div>
+      <div class="card">
+        <img src="assets/Proyecto2.jpg" alt="Proyecto 2">
+        <h4 data-i18n="proj2_title">Inventario Perfumería</h4>
+        <p data-i18n="proj2_desc">Sistema web de inventario en PHP y MySQL con dashboard responsivo.</p>
+      </div>
+      <div class="card">
+        <img src="assets/Proyecto3.png" alt="Proyecto 3">
+        <h4 data-i18n="proj3_title">Tower Defense Game</h4>
+        <p data-i18n="proj3_desc">Juego 2D desarrollado en Godot Engine aplicando patrones de programación.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+<section id="contact">
+  <h2 data-i18n="contact_title">Contacto</h2>
+  <p data-i18n="contact_text">
+    ¿Te interesa colaborar o tienes alguna oportunidad? Envíame un mensaje y te responderé pronto.
+  </p>
+
+  <form id="contactForm" action="https://formspree.io/f/mpwoggvr" method="POST">
+    <input type="text" name="name" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu correo" required>
+    <textarea name="message" placeholder="Tu mensaje" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <!-- Enlaces de contacto / redes -->
+  <div class="social">
+    <a href="https://www.linkedin.com/in/camilo-c%C3%A9spedes-uma%C3%B1a-6b9145287/" target="_blank">💼 LinkedIn</a>
+    <a href="https://github.com/ccespedesu" target="_blank">💻 GitHub</a>
+  </div>
+</section>
+
+<script>
+document.querySelector('#contactForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const form = e.target;
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      alert('Muchas gracias por la confianza 😊. Te responderé lo antes posible.');
+      form.reset();
+    } else {
+      alert('Hubo un error al enviar el mensaje. Intenta más tarde.');
+    }
+  } catch (error) {
+    alert('No se pudo conectar con el servidor. Revisa tu conexión.');
+  }
+});
+</script>
+
+
+<!--End-->
+
+  <!-- DOWNLOAD CV -->
+  <section id="cv">
+    <h2 data-i18n="cv_title">Currículum Digital</h2>
+    <a href="assets/Camilo Cespedes UmanaCV ENG.pdf" class="btn" download data-i18n="download_cv">Descargar CV</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Camilo Céspedes Umaña. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- SCROLL TOP BUTTON -->
+  <button id="scrollTopBtn">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
